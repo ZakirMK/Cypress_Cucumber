@@ -16,6 +16,17 @@ When('I add product {int} to the cart', (productNumber: number) => {
     sauceDemo.addToCart(productNumber)
 });
 
+When('I order product {int}', (productNumber: number) => {
+    sauceDemo.cartIsEmpty()
+    sauceDemo.addToCart(productNumber)
+    sauceDemo.assertItemIsAddedToCart(productNumber)
+    sauceDemo.clickCheckout()
+    sauceDemo.fillAdressForm()
+    sauceDemo.clickContinue()
+    sauceDemo.assertCheckoutReview()
+    sauceDemo.clickFinish()
+});
+
 Then('I should see the home page', () => {
     sauceDemo.assertHomePage()
 });
@@ -24,6 +35,10 @@ Then('I should see the home page products and their prices', () => {
     sauceDemo.checkHomeProductsAndPrices();
 });
 
-Then('the cart should show the correct product {int} details', (productNumber: number) => {
+Then('The cart should show the correct product {int} details', (productNumber: number) => {
     sauceDemo.assertItemIsAddedToCart(productNumber)  
+});
+
+Then('The order should be successfully completed', () => {
+    sauceDemo.assertOrderComplete()
 });

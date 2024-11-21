@@ -13,5 +13,13 @@ Feature: Sauce Demo Tests
   Scenario: Check add to cart process
     Given I visit the Sauce Demo page
     When I log in
-    And I add product 1 to the cart
-    Then the cart should show the correct product 1 details
+    # select a number between 1 and 6 due to the number of items in the inventory
+    And I add product 1 to the cart 
+    Then The cart should show the correct product 1 details
+
+  Scenario: Check ordering item process
+    Given I visit the Sauce Demo page
+    When I log in
+    # select a number between 1 and 6 due to the number of items in the inventory
+    And I order product 2
+    Then The order should be successfully completed
