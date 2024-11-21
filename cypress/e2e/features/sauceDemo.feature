@@ -23,3 +23,10 @@ Feature: Sauce Demo Tests
     # select a number between 1 and 6 due to the number of items in the inventory
     And I order product 2
     Then The order should be successfully completed
+
+  Scenario: Mock SauceDemo token
+    Given I visit the Sauce Demo page
+    When I mock the "uniqueTokenEventAlias" event
+    And I mock the "summedTokenEventAlias" event
+    Then The events should be successfully mocked
+    And The test should fail intentionally for verification
