@@ -14,3 +14,7 @@ When('I log in', () => {
 Then('I should see the home page', () => {
     sauceDemo.assertHomePage()
 });
+
+Then('I should see the home page products and their prices', () => {
+    sauceDemo.checkHomeProductsAndPrices();
+});
