@@ -53,12 +53,12 @@ Then('The cart should show the correct product {int} details', (productNumber: n
 Then('The order should be successfully completed', () => {
     sauceDemo.assertOrderComplete()
 });
-  
+
 Then('The events should be successfully mocked', () => {
     helper.assertSauceEventIsMocked('uniqueTokenEventAlias');
     helper.assertSauceEventIsMocked('summedTokenEventAlias');
 });
-  
+
 Then('The test should fail intentionally for verification', () => {
     assert(
         false,
