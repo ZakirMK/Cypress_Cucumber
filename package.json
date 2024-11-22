@@ -4,8 +4,10 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "lint": "eslint . --fix",
-    "lint:check": "eslint ."
+    "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
+    "lint:check": "eslint .",
+    "open:e2e": "npx cypress open --config-file ./cypress.config.ts",
+    "test:e2e": "npx cypress run --config-file ./cypress.config.ts"
   },
   "keywords": [],
   "author": "",
